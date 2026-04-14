@@ -477,3 +477,179 @@
       color: #fff;
     }
     .pagination .page-link:hover { background: #f0ece5; }
+
+    .register-container {
+            max-width: 500px;
+            margin: 60px auto;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 40px;
+        }
+
+        .register-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .register-header h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dark-navy);
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+
+        .form-label {
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--dark-navy);
+        }
+
+        .form-control {
+            border: 1.5px solid var(--border);
+            border-radius: 2px;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+        }
+
+        .form-control:focus {
+            border-color: var(--dark-navy);
+            box-shadow: none;
+        }
+
+        .btn-register {
+            background: var(--dark-navy);
+            color: #fff;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .btn-register:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.85rem;
+        }
+
+        .login-link a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .brand-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--dark-navy);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .brand-logo span { color: var(--primary); }
+           .login-container {
+            max-width: 450px;
+            margin: 80px auto;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 40px;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-header h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dark-navy);
+            font-weight: 700;
+            font-size: 1.8rem;
+            margin-top: 10px;
+        }
+
+        .brand-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-navy);
+            text-decoration: none;
+        }
+        .brand-logo span { color: var(--primary); }
+
+        .form-label {
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--dark-navy);
+        }
+
+        .form-control {
+            border: 1.5px solid var(--border);
+            border-radius: 2px;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+        }
+
+        .form-control:focus {
+            border-color: var(--dark-navy);
+            box-shadow: none;
+        }
+
+        .btn-login-submit {
+            background: var(--dark-navy);
+            color: #fff;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+
+        .btn-login-submit:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .extra-links {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .extra-links a {
+            color: var(--dark-navy);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .extra-links a span {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .forgot-password {
+            font-size: 0.75rem;
+            color: var(--text-muted-custom);
+        }
