@@ -14,7 +14,7 @@
 <div class="container">
     <div class="login-container">
         <div class="login-header">
-            <a href="#" class="brand-logo">Bids<span>Art</span></a>
+            <a href="{{ route('home') }}" class="brand-logo">Bids<span>Art</span></a>
             <h2>Connexion</h2>
         </div>
 
