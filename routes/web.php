@@ -12,3 +12,6 @@ Route::post('/register', [UserController::class, 'store'])->name('register.store
 
 Route::get('/login', [IndexController::class, 'showLogin'])->name('login.show');
 Route::post('/login', [UserController::class, 'login'])->name('login.perform');
+Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+
+Route::get('/api/search', [ObjetController::class, 'search'])->name('search.ajax');

@@ -23,18 +23,37 @@
   <div class="container-xl">
     <div class="row g-4">
 
-      <x-sidebar />
+<x-sidebar :categories="$categories" :villes="$villes" />
 
-      <div class="col-lg-9 col-xl-10">
-        <div class="grid-header">
-          <div class="grid-count"><strong>247 lots</strong> correspondent à votre recherche</div>
-          <div class="d-flex align-items-center gap-2">
-            <span style="font-size:.8rem;color:#666;">Trier par :</span>
-            <button class="sort-btn">
-              <i class="bi bi-calendar3"></i> Date croissante <i class="bi bi-chevron-down" style="font-size:.7rem;"></i>
-            </button>
-          </div>
-        </div>
+<div class="col-lg-9 col-xl-10">
+  <div class="grid-header d-flex justify-content-between align-items-center">
+    <div class="grid-count"><strong>{{ $objets->count() }} lots</strong> correspondent à votre recherche</div>
+    
+    <div class="d-flex align-items-center gap-2">
+      <span style="font-size:.8rem;color:#666;">Trier par :</span>
+      <div class="dropdown">
+        <button class="sort-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-filter"></i> 
+          @switch(request('sort'))
+            @case('date_asc') Date croissante @break
+            @case('date_desc') Date décroissante @break
+            @case('prix_asc') Prix croissant @break
+            @case('prix_desc') Prix décroissant @break
+            @default Date croissante
+          @endswitch
+          <i class="bi bi-chevron-down ms-1" style="font-size:.7rem;"></i>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+          <li><a class="dropdown-item small" href="{{ request()->fullUrlWithQuery(['sort' => 'date_asc']) }}">Date croissante</a></li>
+          <li><a class="dropdown-item small" href="{{ request()->fullUrlWithQuery(['sort' => 'date_desc']) }}">Date décroissante</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item small" href="{{ request()->fullUrlWithQuery(['sort' => 'prix_asc']) }}">Prix croissant</a></li>
+          <li><a class="dropdown-item small" href="{{ request()->fullUrlWithQuery(['sort' => 'prix_desc']) }}">Prix décroissant</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
 
 <div class="row g-3 mb-3">
     @forelse($objets as $objet)
@@ -61,6 +80,7 @@
 @include('layouts.footer')
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://jquery.com"></script>
 
 </body>
 </html>
