@@ -43,13 +43,22 @@
 <div class="nav-categories">
   <div class="container-xl">
     <ul class="nav mb-0">
-      <li class="nav-item"><a class="nav-link active" href="#">Toutes les ventes</a></li>
-      <li class="nav-item"><a class="nav-link" href="#">Art moderne</a></li>
-      <li class="nav-item"><a class="nav-link" href="#">Mobilier & Objets d'art</a></li>
-      <li class="nav-item"><a class="nav-link" href="#">Bijoux & Montres</a></li>
-      <li class="nav-item"><a class="nav-link" href="#">Livres & Manuscrits</a></li>
-      <li class="nav-item"><a class="nav-link" href="#">Vins & Spiritueux</a></li>
-      <li class="nav-item"><a class="nav-link" href="#">Numismatique</a></li>
+      <li class="nav-item">
+        <!-- "Toutes les ventes" active ila makan hta filtre -->
+        <a class="nav-link {{ !request('category') ? 'active' : '' }}" href="{{ route('home') }}">
+            Toutes les ventes
+        </a>
+      </li>
+
+      @foreach($categories as $cat)
+      <li class="nav-item">
+        <a class="nav-link {{ request('category') == $cat->id ? 'active' : '' }}" 
+           href="{{ route('home', ['category' => $cat->id]) }}">
+            {{ $cat->libelle }}
+        </a>
+      </li>
+      @endforeach
     </ul>
   </div>
 </div>
+

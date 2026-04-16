@@ -36,9 +36,22 @@
           </div>
         </div>
 
-        <div class="row g-3 mb-3">
-          <x-card />
+<div class="row g-3 mb-3">
+    @forelse($objets as $objet)
+        <x-card :objet="$objet" />
+    @empty
+        <div class="col-12 text-center py-5">
+            <div class="empty-state">
+                <i class="bi bi-box-seam" style="font-size: 3rem; color: #ccc;"></i>
+                <h3 class="mt-3 text-muted">Aucun objet trouvé</h3>
+                <p>Il n'y a pas d'enchères disponibles pour le moment.</p>
+                <a href="{{ route('home') }}" class="btn btn-outline-primary btn-sm">Actualiser la page</a>
+            </div>
         </div>
+    @endforelse
+</div>
+
+
       </div>
 
     </div>
