@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +8,7 @@
     <title>RegistrePage</title>
 </head>
 <body>
-    <div class="container">
+<div class="container">
     <div class="register-container">
         <div class="register-header">
             <a href="{{ route('home') }}" class="brand-logo">Bids<span>&ART</span></a>
@@ -18,20 +16,40 @@
             <p class="text-muted small">Rejoignez notre communauté d'enchérisseurs</p>
         </div>
 
-        <form action="#" method="POST">
+        <!-- Alert Success -->
+        @if(session('success'))
+            <div class="alert alert-success" style="padding: 10px; background: #d4edda; color: #155724; border-radius: 4px; margin-bottom: 15px;">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        <!-- Alert Global Errors -->
+        @if($errors->any())
+            <div class="alert alert-danger" style="padding: 10px; background: #f8d7da; color: #721c24; border-radius: 4px; margin-bottom: 15px;">
+                <ul style="margin: 0; padding-left: 20px;">
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <form action="{{ route('register.store') }}" method="POST">
+            @csrf
+            
             <div class="mb-3">
                 <label class="form-label">Nom complet</label>
-                <input type="text" name="name" class="form-control" placeholder="Ex: Ahmed Alami" required>
+                <input type="text" name="nom" class="form-control @error('nom') is-invalid @enderror" value="{{ old('nom') }}" placeholder="Ex: Ahmed Alami" required>
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Adresse Email</label>
-                <input type="email" name="email" class="form-control" placeholder="exemple@mail.com" required>
+                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="exemple@mail.com" required>
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Mot de passe</label>
-                <input type="password" name="password" class="form-control" required>
+                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" required>
             </div>
 
             <div class="mb-3">
@@ -49,7 +67,7 @@
             <button type="submit" class="btn-register">S'inscrire</button>
 
             <div class="login-link">
-                Déjà inscrit ? <a href="login.html">Se connecter</a>
+                Déjà inscrit ? <a href="{{ route('login.show') }}">Se connecter</a>
             </div>
         </form>
     </div>
